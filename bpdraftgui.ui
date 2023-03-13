@@ -1,0 +1,661 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ui version="4.0">
+ <class>MainWindow</class>
+ <widget class="QMainWindow" name="MainWindow">
+  <property name="geometry">
+   <rect>
+    <x>0</x>
+    <y>0</y>
+    <width>848</width>
+    <height>500</height>
+   </rect>
+  </property>
+  <property name="minimumSize">
+   <size>
+    <width>500</width>
+    <height>500</height>
+   </size>
+  </property>
+  <property name="windowTitle">
+   <string>Classical Ciphers Cryptanalysis Tool</string>
+  </property>
+  <property name="styleSheet">
+   <string notr="true">background-color: qlineargradient(spread:reflect, x1:0.573682, y1:0, x2:0.574364, y2:1, stop:0 rgba(100, 100, 100, 255), stop:1 rgba(133, 133, 133, 255));
+</string>
+  </property>
+  <widget class="QWidget" name="centralwidget">
+   <layout class="QHBoxLayout" name="horizontalLayout">
+    <item>
+     <layout class="QVBoxLayout" name="verticalLayout">
+      <property name="sizeConstraint">
+       <enum>QLayout::SetDefaultConstraint</enum>
+      </property>
+      <property name="leftMargin">
+       <number>1</number>
+      </property>
+      <property name="topMargin">
+       <number>1</number>
+      </property>
+      <property name="rightMargin">
+       <number>2</number>
+      </property>
+      <property name="bottomMargin">
+       <number>1</number>
+      </property>
+      <item>
+       <widget class="QPushButton" name="affineBtn">
+        <property name="enabled">
+         <bool>true</bool>
+        </property>
+        <property name="sizePolicy">
+         <sizepolicy hsizetype="Preferred" vsizetype="Preferred">
+          <horstretch>0</horstretch>
+          <verstretch>0</verstretch>
+         </sizepolicy>
+        </property>
+        <property name="minimumSize">
+         <size>
+          <width>75</width>
+          <height>0</height>
+         </size>
+        </property>
+        <property name="baseSize">
+         <size>
+          <width>500</width>
+          <height>100</height>
+         </size>
+        </property>
+        <property name="focusPolicy">
+         <enum>Qt::StrongFocus</enum>
+        </property>
+        <property name="styleSheet">
+         <string notr="true">QPushButton {
+  qproperty-alignment: 'AlignVCenter | AlignRight';
+  border: 1px solid gray;
+	background-color: qlineargradient(spread:reflect, x1:0.573682, y1:0, x2:0.574364, y2:1, stop:0 rgba(178, 178, 178, 255), stop:1 rgba(153, 153, 153, 255));
+	
+	border-color: rgb(108, 108, 108);
+}
+QPushButton:pressed{
+background-color: rgb(130, 130, 130);
+/*background-color: qlineargradient(spread:reflect, x1:0.573682, y1:0, x2:0.574364, y2:1, stop:0 rgba(188, 188, 188, 255), stop:1 rgba(130, 130, 130, 255));*/
+}
+
+</string>
+        </property>
+        <property name="text">
+         <string>Affine</string>
+        </property>
+       </widget>
+      </item>
+      <item>
+       <widget class="QPushButton" name="adfgvxBtn">
+        <property name="enabled">
+         <bool>true</bool>
+        </property>
+        <property name="sizePolicy">
+         <sizepolicy hsizetype="Preferred" vsizetype="Preferred">
+          <horstretch>0</horstretch>
+          <verstretch>0</verstretch>
+         </sizepolicy>
+        </property>
+        <property name="minimumSize">
+         <size>
+          <width>75</width>
+          <height>0</height>
+         </size>
+        </property>
+        <property name="baseSize">
+         <size>
+          <width>500</width>
+          <height>100</height>
+         </size>
+        </property>
+        <property name="focusPolicy">
+         <enum>Qt::StrongFocus</enum>
+        </property>
+        <property name="styleSheet">
+         <string notr="true">QPushButton {
+  qproperty-alignment: 'AlignVCenter | AlignRight';
+  border: 1px solid gray;
+	background-color: qlineargradient(spread:reflect, x1:0.573682, y1:0, x2:0.574364, y2:1, stop:0 rgba(178, 178, 178, 255), stop:1 rgba(153, 153, 153, 255));
+	
+	border-color: rgb(108, 108, 108);
+}
+QPushButton:pressed{
+background-color: rgb(130, 130, 130);
+/*background-color: qlineargradient(spread:reflect, x1:0.573682, y1:0, x2:0.574364, y2:1, stop:0 rgba(188, 188, 188, 255), stop:1 rgba(130, 130, 130, 255));*/
+}
+
+</string>
+        </property>
+        <property name="text">
+         <string>ADFGVX</string>
+        </property>
+       </widget>
+      </item>
+      <item>
+       <widget class="QPushButton" name="playfairBtn">
+        <property name="enabled">
+         <bool>true</bool>
+        </property>
+        <property name="sizePolicy">
+         <sizepolicy hsizetype="Preferred" vsizetype="Preferred">
+          <horstretch>0</horstretch>
+          <verstretch>0</verstretch>
+         </sizepolicy>
+        </property>
+        <property name="minimumSize">
+         <size>
+          <width>75</width>
+          <height>0</height>
+         </size>
+        </property>
+        <property name="baseSize">
+         <size>
+          <width>500</width>
+          <height>100</height>
+         </size>
+        </property>
+        <property name="focusPolicy">
+         <enum>Qt::StrongFocus</enum>
+        </property>
+        <property name="styleSheet">
+         <string notr="true">QPushButton {
+  qproperty-alignment: 'AlignVCenter | AlignRight';
+  border: 1px solid gray;
+	background-color: qlineargradient(spread:reflect, x1:0.573682, y1:0, x2:0.574364, y2:1, stop:0 rgba(178, 178, 178, 255), stop:1 rgba(153, 153, 153, 255));
+	
+	border-color: rgb(108, 108, 108);
+}
+QPushButton:pressed{
+background-color: rgb(130, 130, 130);
+/*background-color: qlineargradient(spread:reflect, x1:0.573682, y1:0, x2:0.574364, y2:1, stop:0 rgba(188, 188, 188, 255), stop:1 rgba(130, 130, 130, 255));*/
+}
+
+</string>
+        </property>
+        <property name="text">
+         <string>Playfair</string>
+        </property>
+       </widget>
+      </item>
+      <item>
+       <widget class="QPushButton" name="rot13Btn">
+        <property name="enabled">
+         <bool>true</bool>
+        </property>
+        <property name="sizePolicy">
+         <sizepolicy hsizetype="Preferred" vsizetype="Preferred">
+          <horstretch>0</horstretch>
+          <verstretch>0</verstretch>
+         </sizepolicy>
+        </property>
+        <property name="minimumSize">
+         <size>
+          <width>75</width>
+          <height>0</height>
+         </size>
+        </property>
+        <property name="baseSize">
+         <size>
+          <width>500</width>
+          <height>100</height>
+         </size>
+        </property>
+        <property name="focusPolicy">
+         <enum>Qt::StrongFocus</enum>
+        </property>
+        <property name="styleSheet">
+         <string notr="true">QPushButton {
+  qproperty-alignment: 'AlignVCenter | AlignRight';
+  border: 1px solid gray;
+	background-color: qlineargradient(spread:reflect, x1:0.573682, y1:0, x2:0.574364, y2:1, stop:0 rgba(178, 178, 178, 255), stop:1 rgba(153, 153, 153, 255));
+	
+	border-color: rgb(108, 108, 108);
+}
+QPushButton:pressed{
+background-color: rgb(130, 130, 130);
+/*background-color: qlineargradient(spread:reflect, x1:0.573682, y1:0, x2:0.574364, y2:1, stop:0 rgba(188, 188, 188, 255), stop:1 rgba(130, 130, 130, 255));*/
+}
+
+</string>
+        </property>
+        <property name="text">
+         <string>ROT13</string>
+        </property>
+       </widget>
+      </item>
+      <item>
+       <widget class="QPushButton" name="railfenceBtn">
+        <property name="enabled">
+         <bool>true</bool>
+        </property>
+        <property name="sizePolicy">
+         <sizepolicy hsizetype="Minimum" vsizetype="Preferred">
+          <horstretch>0</horstretch>
+          <verstretch>0</verstretch>
+         </sizepolicy>
+        </property>
+        <property name="minimumSize">
+         <size>
+          <width>75</width>
+          <height>0</height>
+         </size>
+        </property>
+        <property name="baseSize">
+         <size>
+          <width>500</width>
+          <height>100</height>
+         </size>
+        </property>
+        <property name="focusPolicy">
+         <enum>Qt::StrongFocus</enum>
+        </property>
+        <property name="styleSheet">
+         <string notr="true">QPushButton {
+  qproperty-alignment: 'AlignVCenter | AlignRight';
+  border: 1px solid gray;
+	background-color: qlineargradient(spread:reflect, x1:0.573682, y1:0, x2:0.574364, y2:1, stop:0 rgba(178, 178, 178, 255), stop:1 rgba(153, 153, 153, 255));
+	
+	border-color: rgb(108, 108, 108);
+}
+QPushButton:pressed{
+background-color: rgb(130, 130, 130);
+/*background-color: qlineargradient(spread:reflect, x1:0.573682, y1:0, x2:0.574364, y2:1, stop:0 rgba(188, 188, 188, 255), stop:1 rgba(130, 130, 130, 255));*/
+}
+
+</string>
+        </property>
+        <property name="text">
+         <string>Railfence</string>
+        </property>
+       </widget>
+      </item>
+      <item>
+       <widget class="QPushButton" name="routeBtn">
+        <property name="enabled">
+         <bool>true</bool>
+        </property>
+        <property name="sizePolicy">
+         <sizepolicy hsizetype="Preferred" vsizetype="Preferred">
+          <horstretch>0</horstretch>
+          <verstretch>0</verstretch>
+         </sizepolicy>
+        </property>
+        <property name="minimumSize">
+         <size>
+          <width>75</width>
+          <height>0</height>
+         </size>
+        </property>
+        <property name="baseSize">
+         <size>
+          <width>500</width>
+          <height>100</height>
+         </size>
+        </property>
+        <property name="focusPolicy">
+         <enum>Qt::StrongFocus</enum>
+        </property>
+        <property name="styleSheet">
+         <string notr="true">QPushButton {
+  qproperty-alignment: 'AlignVCenter | AlignRight';
+  border: 1px solid gray;
+	background-color: qlineargradient(spread:reflect, x1:0.573682, y1:0, x2:0.574364, y2:1, stop:0 rgba(178, 178, 178, 255), stop:1 rgba(153, 153, 153, 255));
+	
+	border-color: rgb(108, 108, 108);
+}
+QPushButton:pressed{
+background-color: rgb(130, 130, 130);
+/*background-color: qlineargradient(spread:reflect, x1:0.573682, y1:0, x2:0.574364, y2:1, stop:0 rgba(188, 188, 188, 255), stop:1 rgba(130, 130, 130, 255));*/
+}
+
+</string>
+        </property>
+        <property name="text">
+         <string>Route</string>
+        </property>
+       </widget>
+      </item>
+      <item>
+       <widget class="QPushButton" name="vigenereBtn">
+        <property name="enabled">
+         <bool>true</bool>
+        </property>
+        <property name="sizePolicy">
+         <sizepolicy hsizetype="Preferred" vsizetype="Preferred">
+          <horstretch>0</horstretch>
+          <verstretch>0</verstretch>
+         </sizepolicy>
+        </property>
+        <property name="minimumSize">
+         <size>
+          <width>75</width>
+          <height>0</height>
+         </size>
+        </property>
+        <property name="baseSize">
+         <size>
+          <width>500</width>
+          <height>100</height>
+         </size>
+        </property>
+        <property name="focusPolicy">
+         <enum>Qt::StrongFocus</enum>
+        </property>
+        <property name="styleSheet">
+         <string notr="true">QPushButton {
+  qproperty-alignment: 'AlignVCenter | AlignRight';
+  border: 1px solid gray;
+	background-color: qlineargradient(spread:reflect, x1:0.573682, y1:0, x2:0.574364, y2:1, stop:0 rgba(178, 178, 178, 255), stop:1 rgba(153, 153, 153, 255));
+	
+	border-color: rgb(108, 108, 108);
+}
+QPushButton:pressed{
+background-color: rgb(130, 130, 130);
+/*background-color: qlineargradient(spread:reflect, x1:0.573682, y1:0, x2:0.574364, y2:1, stop:0 rgba(188, 188, 188, 255), stop:1 rgba(130, 130, 130, 255));*/
+}
+
+</string>
+        </property>
+        <property name="text">
+         <string>Vigenere</string>
+        </property>
+       </widget>
+      </item>
+      <item>
+       <widget class="QPushButton" name="scytaleBtn">
+        <property name="enabled">
+         <bool>true</bool>
+        </property>
+        <property name="sizePolicy">
+         <sizepolicy hsizetype="Preferred" vsizetype="Preferred">
+          <horstretch>0</horstretch>
+          <verstretch>0</verstretch>
+         </sizepolicy>
+        </property>
+        <property name="minimumSize">
+         <size>
+          <width>75</width>
+          <height>0</height>
+         </size>
+        </property>
+        <property name="baseSize">
+         <size>
+          <width>500</width>
+          <height>100</height>
+         </size>
+        </property>
+        <property name="focusPolicy">
+         <enum>Qt::StrongFocus</enum>
+        </property>
+        <property name="styleSheet">
+         <string notr="true">QPushButton {
+  qproperty-alignment: 'AlignVCenter | AlignRight';
+  border: 1px solid gray;
+	background-color: qlineargradient(spread:reflect, x1:0.573682, y1:0, x2:0.574364, y2:1, stop:0 rgba(178, 178, 178, 255), stop:1 rgba(153, 153, 153, 255));
+	
+	border-color: rgb(108, 108, 108);
+}
+QPushButton:pressed{
+background-color: rgb(130, 130, 130);
+/*background-color: qlineargradient(spread:reflect, x1:0.573682, y1:0, x2:0.574364, y2:1, stop:0 rgba(188, 188, 188, 255), stop:1 rgba(130, 130, 130, 255));*/
+}
+
+</string>
+        </property>
+        <property name="text">
+         <string>Scytale</string>
+        </property>
+       </widget>
+      </item>
+      <item>
+       <widget class="QPushButton" name="analysisBtn">
+        <property name="enabled">
+         <bool>true</bool>
+        </property>
+        <property name="sizePolicy">
+         <sizepolicy hsizetype="Preferred" vsizetype="Preferred">
+          <horstretch>0</horstretch>
+          <verstretch>0</verstretch>
+         </sizepolicy>
+        </property>
+        <property name="minimumSize">
+         <size>
+          <width>75</width>
+          <height>0</height>
+         </size>
+        </property>
+        <property name="baseSize">
+         <size>
+          <width>500</width>
+          <height>100</height>
+         </size>
+        </property>
+        <property name="focusPolicy">
+         <enum>Qt::StrongFocus</enum>
+        </property>
+        <property name="styleSheet">
+         <string notr="true">QPushButton {
+  qproperty-alignment: 'AlignVCenter | AlignRight';
+  border: 1px solid gray;
+	background-color: qlineargradient(spread:reflect, x1:0.573682, y1:0, x2:0.574364, y2:1, stop:0 rgba(178, 178, 178, 255), stop:1 rgba(153, 153, 153, 255));
+	
+	border-color: rgb(108, 108, 108);
+}
+QPushButton:pressed{
+background-color: rgb(130, 130, 130);
+/*background-color: qlineargradient(spread:reflect, x1:0.573682, y1:0, x2:0.574364, y2:1, stop:0 rgba(188, 188, 188, 255), stop:1 rgba(130, 130, 130, 255));*/
+}
+
+</string>
+        </property>
+        <property name="text">
+         <string>Analysis</string>
+        </property>
+       </widget>
+      </item>
+      <item>
+       <widget class="QPushButton" name="breakerBtn">
+        <property name="enabled">
+         <bool>true</bool>
+        </property>
+        <property name="sizePolicy">
+         <sizepolicy hsizetype="Preferred" vsizetype="Preferred">
+          <horstretch>0</horstretch>
+          <verstretch>0</verstretch>
+         </sizepolicy>
+        </property>
+        <property name="minimumSize">
+         <size>
+          <width>75</width>
+          <height>0</height>
+         </size>
+        </property>
+        <property name="baseSize">
+         <size>
+          <width>500</width>
+          <height>100</height>
+         </size>
+        </property>
+        <property name="focusPolicy">
+         <enum>Qt::StrongFocus</enum>
+        </property>
+        <property name="styleSheet">
+         <string notr="true">QPushButton {
+  qproperty-alignment: 'AlignVCenter | AlignRight';
+  border: 1px solid gray;
+	background-color: qlineargradient(spread:reflect, x1:0.573682, y1:0, x2:0.574364, y2:1, stop:0 rgba(178, 178, 178, 255), stop:1 rgba(153, 153, 153, 255));
+	
+	border-color: rgb(108, 108, 108);
+}
+QPushButton:pressed{
+background-color: rgb(130, 130, 130);
+/*background-color: qlineargradient(spread:reflect, x1:0.573682, y1:0, x2:0.574364, y2:1, stop:0 rgba(188, 188, 188, 255), stop:1 rgba(130, 130, 130, 255));*/
+}
+
+</string>
+        </property>
+        <property name="text">
+         <string>Breaker</string>
+        </property>
+       </widget>
+      </item>
+     </layout>
+    </item>
+    <item>
+     <widget class="QStackedWidget" name="stackedWidget">
+      <widget class="QWidget" name="page"/>
+      <widget class="QWidget" name="aboutPage">
+       <property name="styleSheet">
+        <string notr="true">background-color: transparent;</string>
+       </property>
+       <widget class="QWidget" name="">
+        <property name="geometry">
+         <rect>
+          <x>150</x>
+          <y>130</y>
+          <width>511</width>
+          <height>191</height>
+         </rect>
+        </property>
+        <layout class="QVBoxLayout" name="verticalLayout_2">
+         <item>
+          <widget class="QLabel" name="aboutLabel">
+           <property name="font">
+            <font>
+             <weight>75</weight>
+             <bold>true</bold>
+            </font>
+           </property>
+           <property name="styleSheet">
+            <string notr="true">color: rgb(220, 220, 220);
+border-color: rgb(61, 61, 61);
+background-color: transparent;</string>
+           </property>
+           <property name="text">
+            <string>This program is a product of a Bachelor's thesis at TBU in Zlin</string>
+           </property>
+           <property name="alignment">
+            <set>Qt::AlignCenter</set>
+           </property>
+          </widget>
+         </item>
+         <item>
+          <widget class="QLabel" name="aboutLabel_5">
+           <property name="font">
+            <font>
+             <weight>75</weight>
+             <bold>true</bold>
+            </font>
+           </property>
+           <property name="styleSheet">
+            <string notr="true">color: rgb(220, 220, 220);
+border-color: rgb(61, 61, 61);
+background-color: transparent;</string>
+           </property>
+           <property name="text">
+            <string>Thesis name: Application for Cryptoanalysis of Classical Cryptography</string>
+           </property>
+           <property name="alignment">
+            <set>Qt::AlignCenter</set>
+           </property>
+          </widget>
+         </item>
+         <item>
+          <widget class="QLabel" name="aboutLabel_2">
+           <property name="font">
+            <font>
+             <weight>75</weight>
+             <bold>true</bold>
+            </font>
+           </property>
+           <property name="styleSheet">
+            <string notr="true">color: rgb(220, 220, 220);
+border-color: rgb(61, 61, 61);
+background-color: transparent;</string>
+           </property>
+           <property name="text">
+            <string>Author: Matej Zencak</string>
+           </property>
+           <property name="alignment">
+            <set>Qt::AlignCenter</set>
+           </property>
+          </widget>
+         </item>
+         <item>
+          <widget class="QLabel" name="aboutLabel_3">
+           <property name="font">
+            <font>
+             <weight>75</weight>
+             <bold>true</bold>
+            </font>
+           </property>
+           <property name="styleSheet">
+            <string notr="true">color: rgb(220, 220, 220);
+border-color: rgb(61, 61, 61);
+background-color: transparent;</string>
+           </property>
+           <property name="text">
+            <string>Contact: m_zencak@utb.cz</string>
+           </property>
+           <property name="alignment">
+            <set>Qt::AlignCenter</set>
+           </property>
+          </widget>
+         </item>
+         <item>
+          <widget class="QLabel" name="aboutLabel_4">
+           <property name="font">
+            <font>
+             <weight>75</weight>
+             <bold>true</bold>
+            </font>
+           </property>
+           <property name="styleSheet">
+            <string notr="true">color: rgb(220, 220, 220);
+border-color: rgb(61, 61, 61);
+background-color: transparent;</string>
+           </property>
+           <property name="text">
+            <string>Supervisor of this thesis: Ing. Petr Zacek, Ph.D.</string>
+           </property>
+           <property name="alignment">
+            <set>Qt::AlignCenter</set>
+           </property>
+          </widget>
+         </item>
+        </layout>
+       </widget>
+      </widget>
+     </widget>
+    </item>
+   </layout>
+  </widget>
+  <widget class="QMenuBar" name="menubar">
+   <property name="geometry">
+    <rect>
+     <x>0</x>
+     <y>0</y>
+     <width>848</width>
+     <height>21</height>
+    </rect>
+   </property>
+   <widget class="QMenu" name="menuFile">
+    <property name="title">
+     <string>About</string>
+    </property>
+    <addaction name="aboutBtn"/>
+   </widget>
+   <addaction name="menuFile"/>
+  </widget>
+  <action name="aboutBtn">
+   <property name="text">
+    <string>About this program</string>
+   </property>
+  </action>
+ </widget>
+ <resources/>
+ <connections/>
+</ui>

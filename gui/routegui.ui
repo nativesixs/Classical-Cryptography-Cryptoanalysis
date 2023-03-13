@@ -1,0 +1,591 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ui version="4.0">
+ <class>Form</class>
+ <widget class="QWidget" name="Form">
+  <property name="geometry">
+   <rect>
+    <x>0</x>
+    <y>0</y>
+    <width>707</width>
+    <height>325</height>
+   </rect>
+  </property>
+  <property name="windowTitle">
+   <string>Form</string>
+  </property>
+  <property name="styleSheet">
+   <string notr="true">background-color: qlineargradient(spread:reflect, x1:0.573682, y1:0, x2:0.574364, y2:1, stop:0 rgba(100, 100, 100, 255), stop:1 rgba(133, 133, 133, 255));
+/*svetlejsi verze, prvni 3 jsou 115,115,115*/
+
+</string>
+  </property>
+  <layout class="QGridLayout" name="gridLayout" columnstretch="1,0,0">
+   <item row="0" column="0">
+    <layout class="QVBoxLayout" name="verticalLayout_4">
+     <item>
+      <widget class="QLabel" name="hlavniNadpis">
+       <property name="font">
+        <font>
+         <pointsize>15</pointsize>
+         <weight>75</weight>
+         <bold>true</bold>
+        </font>
+       </property>
+       <property name="styleSheet">
+        <string notr="true">color: rgb(220, 220, 220);
+border-color: rgb(61, 61, 61);
+background-color: transparent;</string>
+       </property>
+       <property name="text">
+        <string>Route Cipher</string>
+       </property>
+       <property name="alignment">
+        <set>Qt::AlignCenter</set>
+       </property>
+      </widget>
+     </item>
+     <item>
+      <widget class="QLabel" name="labelHodnotaA">
+       <property name="minimumSize">
+        <size>
+         <width>250</width>
+         <height>0</height>
+        </size>
+       </property>
+       <property name="font">
+        <font>
+         <weight>75</weight>
+         <bold>true</bold>
+        </font>
+       </property>
+       <property name="styleSheet">
+        <string notr="true">color: rgb(220, 220, 220);
+border-color: rgb(61, 61, 61);
+background-color: transparent;</string>
+       </property>
+       <property name="text">
+        <string>String to Encrypt</string>
+       </property>
+       <property name="alignment">
+        <set>Qt::AlignBottom|Qt::AlignHCenter</set>
+       </property>
+      </widget>
+     </item>
+     <item>
+      <widget class="QLineEdit" name="plainText">
+       <property name="sizePolicy">
+        <sizepolicy hsizetype="Preferred" vsizetype="Fixed">
+         <horstretch>0</horstretch>
+         <verstretch>0</verstretch>
+        </sizepolicy>
+       </property>
+       <property name="minimumSize">
+        <size>
+         <width>0</width>
+         <height>25</height>
+        </size>
+       </property>
+       <property name="styleSheet">
+        <string notr="true">QLineEdit {
+  qproperty-alignment: 'AlignVCenter | AlignLeft';
+  border: 1px solid gray;
+	background-color: qlineargradient(spread:reflect, x1:0.573682, y1:0, x2:0.574364, y2:1, stop:0 rgba(178, 178, 178, 255), stop:1 rgba(153, 153, 153, 255));
+}
+
+</string>
+       </property>
+      </widget>
+     </item>
+     <item>
+      <widget class="QLabel" name="labelHodnotaB">
+       <property name="minimumSize">
+        <size>
+         <width>250</width>
+         <height>0</height>
+        </size>
+       </property>
+       <property name="font">
+        <font>
+         <weight>75</weight>
+         <bold>true</bold>
+        </font>
+       </property>
+       <property name="styleSheet">
+        <string notr="true">color: rgb(220, 220, 220);
+border-color: rgb(61, 61, 61);
+background-color: transparent;</string>
+       </property>
+       <property name="text">
+        <string>String to Decrypt</string>
+       </property>
+       <property name="alignment">
+        <set>Qt::AlignBottom|Qt::AlignHCenter</set>
+       </property>
+      </widget>
+     </item>
+     <item>
+      <widget class="QLineEdit" name="cipherText">
+       <property name="sizePolicy">
+        <sizepolicy hsizetype="Preferred" vsizetype="Fixed">
+         <horstretch>0</horstretch>
+         <verstretch>0</verstretch>
+        </sizepolicy>
+       </property>
+       <property name="minimumSize">
+        <size>
+         <width>0</width>
+         <height>25</height>
+        </size>
+       </property>
+       <property name="styleSheet">
+        <string notr="true">QLineEdit {
+  qproperty-alignment: 'AlignVCenter | AlignLeft';
+  border: 1px solid gray;
+	background-color: qlineargradient(spread:reflect, x1:0.573682, y1:0, x2:0.574364, y2:1, stop:0 rgba(178, 178, 178, 255), stop:1 rgba(153, 153, 153, 255));
+}
+
+</string>
+       </property>
+      </widget>
+     </item>
+     <item>
+      <widget class="QLabel" name="label">
+       <property name="font">
+        <font>
+         <weight>75</weight>
+         <bold>true</bold>
+        </font>
+       </property>
+       <property name="styleSheet">
+        <string notr="true">color: rgb(220, 220, 220);
+border-color: rgb(61, 61, 61);
+background-color: transparent;</string>
+       </property>
+       <property name="text">
+        <string>Encrypted:</string>
+       </property>
+       <property name="alignment">
+        <set>Qt::AlignCenter</set>
+       </property>
+      </widget>
+     </item>
+     <item>
+      <widget class="QLabel" name="cipherTextLine">
+       <property name="sizePolicy">
+        <sizepolicy hsizetype="Preferred" vsizetype="Preferred">
+         <horstretch>0</horstretch>
+         <verstretch>0</verstretch>
+        </sizepolicy>
+       </property>
+       <property name="minimumSize">
+        <size>
+         <width>211</width>
+         <height>20</height>
+        </size>
+       </property>
+       <property name="font">
+        <font>
+         <weight>75</weight>
+         <bold>true</bold>
+        </font>
+       </property>
+       <property name="styleSheet">
+        <string notr="true">color: rgb(220, 220, 220);
+border-color: rgb(61, 61, 61);
+background-color: transparent;</string>
+       </property>
+       <property name="inputMethodHints">
+        <set>Qt::ImhNone</set>
+       </property>
+       <property name="frameShadow">
+        <enum>QFrame::Plain</enum>
+       </property>
+       <property name="text">
+        <string/>
+       </property>
+       <property name="textFormat">
+        <enum>Qt::AutoText</enum>
+       </property>
+       <property name="alignment">
+        <set>Qt::AlignRight|Qt::AlignTrailing|Qt::AlignVCenter</set>
+       </property>
+       <property name="textInteractionFlags">
+        <set>Qt::LinksAccessibleByMouse|Qt::TextSelectableByKeyboard|Qt::TextSelectableByMouse</set>
+       </property>
+      </widget>
+     </item>
+     <item>
+      <widget class="QLabel" name="label_10">
+       <property name="font">
+        <font>
+         <weight>75</weight>
+         <bold>true</bold>
+         <stylestrategy>PreferDefault</stylestrategy>
+         <kerning>true</kerning>
+        </font>
+       </property>
+       <property name="autoFillBackground">
+        <bool>false</bool>
+       </property>
+       <property name="styleSheet">
+        <string notr="true">color: rgb(220, 220, 220);
+border-color: rgb(61, 61, 61);
+background-color: transparent;</string>
+       </property>
+       <property name="frameShape">
+        <enum>QFrame::NoFrame</enum>
+       </property>
+       <property name="frameShadow">
+        <enum>QFrame::Plain</enum>
+       </property>
+       <property name="text">
+        <string>Decrypted:</string>
+       </property>
+       <property name="alignment">
+        <set>Qt::AlignCenter</set>
+       </property>
+      </widget>
+     </item>
+     <item>
+      <widget class="QLabel" name="plainTextLine">
+       <property name="minimumSize">
+        <size>
+         <width>211</width>
+         <height>20</height>
+        </size>
+       </property>
+       <property name="font">
+        <font>
+         <weight>75</weight>
+         <bold>true</bold>
+        </font>
+       </property>
+       <property name="layoutDirection">
+        <enum>Qt::LeftToRight</enum>
+       </property>
+       <property name="autoFillBackground">
+        <bool>false</bool>
+       </property>
+       <property name="styleSheet">
+        <string notr="true">color: rgb(220, 220, 220);
+border-color: rgb(61, 61, 61);
+background-color: transparent;</string>
+       </property>
+       <property name="frameShape">
+        <enum>QFrame::NoFrame</enum>
+       </property>
+       <property name="frameShadow">
+        <enum>QFrame::Plain</enum>
+       </property>
+       <property name="text">
+        <string/>
+       </property>
+       <property name="alignment">
+        <set>Qt::AlignRight|Qt::AlignTrailing|Qt::AlignVCenter</set>
+       </property>
+       <property name="textInteractionFlags">
+        <set>Qt::LinksAccessibleByMouse|Qt::TextSelectableByKeyboard|Qt::TextSelectableByMouse</set>
+       </property>
+      </widget>
+     </item>
+    </layout>
+   </item>
+   <item row="0" column="1" rowspan="2">
+    <widget class="Line" name="line">
+     <property name="styleSheet">
+      <string notr="true">Line{
+color: rgb(21, 21, 21);
+bored: 2px solid black;
+
+}</string>
+     </property>
+     <property name="orientation">
+      <enum>Qt::Vertical</enum>
+     </property>
+    </widget>
+   </item>
+   <item row="0" column="2">
+    <layout class="QVBoxLayout" name="verticalLayout_3">
+     <item>
+      <layout class="QVBoxLayout" name="verticalLayout_2">
+       <item>
+        <widget class="QLabel" name="labelHodnotaC">
+         <property name="sizePolicy">
+          <sizepolicy hsizetype="Preferred" vsizetype="Preferred">
+           <horstretch>0</horstretch>
+           <verstretch>0</verstretch>
+          </sizepolicy>
+         </property>
+         <property name="font">
+          <font>
+           <weight>75</weight>
+           <bold>true</bold>
+          </font>
+         </property>
+         <property name="styleSheet">
+          <string notr="true">color: rgb(220, 220, 220);
+border-color: rgb(61, 61, 61);
+background-color: transparent;</string>
+         </property>
+         <property name="text">
+          <string>Key</string>
+         </property>
+         <property name="alignment">
+          <set>Qt::AlignBottom|Qt::AlignHCenter</set>
+         </property>
+        </widget>
+       </item>
+       <item>
+        <widget class="QLineEdit" name="keyLine">
+         <property name="sizePolicy">
+          <sizepolicy hsizetype="Preferred" vsizetype="Maximum">
+           <horstretch>0</horstretch>
+           <verstretch>0</verstretch>
+          </sizepolicy>
+         </property>
+         <property name="styleSheet">
+          <string notr="true">QLineEdit {
+  qproperty-alignment: 'AlignVCenter | AlignLeft';
+  border: 1px solid gray;
+	background-color: qlineargradient(spread:reflect, x1:0.573682, y1:0, x2:0.574364, y2:1, stop:0 rgba(178, 178, 178, 255), stop:1 rgba(153, 153, 153, 255));
+}
+
+</string>
+         </property>
+         <property name="alignment">
+          <set>Qt::AlignLeading|Qt::AlignLeft|Qt::AlignVCenter</set>
+         </property>
+        </widget>
+       </item>
+      </layout>
+     </item>
+     <item>
+      <layout class="QVBoxLayout" name="verticalLayout">
+       <item>
+        <widget class="QLabel" name="labelHodnotaC_3">
+         <property name="font">
+          <font>
+           <weight>75</weight>
+           <bold>true</bold>
+          </font>
+         </property>
+         <property name="styleSheet">
+          <string notr="true">color: rgb(220, 220, 220);
+border-color: rgb(61, 61, 61);
+background-color: transparent;</string>
+         </property>
+         <property name="text">
+          <string>Route</string>
+         </property>
+         <property name="alignment">
+          <set>Qt::AlignBottom|Qt::AlignHCenter</set>
+         </property>
+        </widget>
+       </item>
+       <item>
+        <widget class="QRadioButton" name="radioButtonColumn">
+         <property name="styleSheet">
+          <string notr="true">background-color: transparent;
+color: rgb(220, 220, 220);
+border-color: rgb(61, 61, 61);</string>
+         </property>
+         <property name="text">
+          <string>Column</string>
+         </property>
+        </widget>
+       </item>
+       <item>
+        <widget class="QRadioButton" name="radioButtonSpiral">
+         <property name="styleSheet">
+          <string notr="true">background-color: transparent;
+color: rgb(220, 220, 220);
+border-color: rgb(61, 61, 61);</string>
+         </property>
+         <property name="text">
+          <string>Spiral counter-clockwise</string>
+         </property>
+        </widget>
+       </item>
+       <item>
+        <widget class="QCheckBox" name="keepSpaces">
+         <property name="styleSheet">
+          <string notr="true">background-color: transparent;
+color: rgb(220, 220, 220);
+border-color: rgb(61, 61, 61);</string>
+         </property>
+         <property name="text">
+          <string>Keep spaces</string>
+         </property>
+        </widget>
+       </item>
+       <item>
+        <widget class="QPushButton" name="importEnBtn">
+         <property name="sizePolicy">
+          <sizepolicy hsizetype="Minimum" vsizetype="Fixed">
+           <horstretch>0</horstretch>
+           <verstretch>0</verstretch>
+          </sizepolicy>
+         </property>
+         <property name="minimumSize">
+          <size>
+           <width>0</width>
+           <height>20</height>
+          </size>
+         </property>
+         <property name="styleSheet">
+          <string notr="true">QPushButton {
+  border: 1px solid gray;
+	background-color: qlineargradient(spread:reflect, x1:0.573682, y1:0, x2:0.574364, y2:1, stop:0 rgba(178, 178, 178, 255), stop:1 rgba(153, 153, 153, 255));
+	
+	border-color: rgb(108, 108, 108);
+}
+QPushButton:pressed{
+background-color: rgb(130, 130, 130);
+/*background-color: qlineargradient(spread:reflect, x1:0.573682, y1:0, x2:0.574364, y2:1, stop:0 rgba(188, 188, 188, 255), stop:1 rgba(130, 130, 130, 255));*/
+}
+
+</string>
+         </property>
+         <property name="text">
+          <string>Import to Encrypt</string>
+         </property>
+        </widget>
+       </item>
+       <item>
+        <widget class="QPushButton" name="importDeBtn">
+         <property name="sizePolicy">
+          <sizepolicy hsizetype="Minimum" vsizetype="Fixed">
+           <horstretch>0</horstretch>
+           <verstretch>0</verstretch>
+          </sizepolicy>
+         </property>
+         <property name="minimumSize">
+          <size>
+           <width>0</width>
+           <height>20</height>
+          </size>
+         </property>
+         <property name="styleSheet">
+          <string notr="true">QPushButton {
+  border: 1px solid gray;
+	background-color: qlineargradient(spread:reflect, x1:0.573682, y1:0, x2:0.574364, y2:1, stop:0 rgba(178, 178, 178, 255), stop:1 rgba(153, 153, 153, 255));
+	
+	border-color: rgb(108, 108, 108);
+}
+QPushButton:pressed{
+background-color: rgb(130, 130, 130);
+/*background-color: qlineargradient(spread:reflect, x1:0.573682, y1:0, x2:0.574364, y2:1, stop:0 rgba(188, 188, 188, 255), stop:1 rgba(130, 130, 130, 255));*/
+}
+
+</string>
+         </property>
+         <property name="text">
+          <string>Import to Decrypt</string>
+         </property>
+        </widget>
+       </item>
+       <item>
+        <widget class="QCheckBox" name="exportToFile">
+         <property name="styleSheet">
+          <string notr="true">background-color: transparent;
+color: rgb(220, 220, 220);
+border-color: rgb(61, 61, 61);</string>
+         </property>
+         <property name="text">
+          <string>Export to file</string>
+         </property>
+        </widget>
+       </item>
+      </layout>
+     </item>
+    </layout>
+   </item>
+   <item row="1" column="0">
+    <layout class="QHBoxLayout" name="horizontalLayout">
+     <property name="bottomMargin">
+      <number>25</number>
+     </property>
+     <item>
+      <widget class="QPushButton" name="encryptBtn">
+       <property name="enabled">
+        <bool>true</bool>
+       </property>
+       <property name="sizePolicy">
+        <sizepolicy hsizetype="Minimum" vsizetype="Fixed">
+         <horstretch>0</horstretch>
+         <verstretch>0</verstretch>
+        </sizepolicy>
+       </property>
+       <property name="minimumSize">
+        <size>
+         <width>150</width>
+         <height>30</height>
+        </size>
+       </property>
+       <property name="focusPolicy">
+        <enum>Qt::StrongFocus</enum>
+       </property>
+       <property name="styleSheet">
+        <string notr="true">QPushButton {
+  qproperty-alignment: 'AlignVCenter | AlignRight';
+  border: 1px solid gray;
+	background-color: qlineargradient(spread:reflect, x1:0.573682, y1:0, x2:0.574364, y2:1, stop:0 rgba(178, 178, 178, 255), stop:1 rgba(153, 153, 153, 255));
+	
+	border-color: rgb(108, 108, 108);
+}
+QPushButton:pressed{
+background-color: rgb(130, 130, 130);
+/*background-color: qlineargradient(spread:reflect, x1:0.573682, y1:0, x2:0.574364, y2:1, stop:0 rgba(188, 188, 188, 255), stop:1 rgba(130, 130, 130, 255));*/
+}
+
+</string>
+       </property>
+       <property name="text">
+        <string>Encrypt</string>
+       </property>
+      </widget>
+     </item>
+     <item>
+      <widget class="QPushButton" name="decryptBtn">
+       <property name="enabled">
+        <bool>true</bool>
+       </property>
+       <property name="sizePolicy">
+        <sizepolicy hsizetype="Minimum" vsizetype="Fixed">
+         <horstretch>0</horstretch>
+         <verstretch>0</verstretch>
+        </sizepolicy>
+       </property>
+       <property name="minimumSize">
+        <size>
+         <width>150</width>
+         <height>30</height>
+        </size>
+       </property>
+       <property name="styleSheet">
+        <string notr="true">QPushButton {
+  qproperty-alignment: 'AlignVCenter | AlignRight';
+  border: 1px solid gray;
+	background-color: qlineargradient(spread:reflect, x1:0.573682, y1:0, x2:0.574364, y2:1, stop:0 rgba(178, 178, 178, 255), stop:1 rgba(153, 153, 153, 255));
+	
+	border-color: rgb(108, 108, 108);
+}
+QPushButton:pressed{
+background-color: rgb(130, 130, 130);
+/*background-color: qlineargradient(spread:reflect, x1:0.573682, y1:0, x2:0.574364, y2:1, stop:0 rgba(188, 188, 188, 255), stop:1 rgba(130, 130, 130, 255));*/
+}
+
+</string>
+       </property>
+       <property name="text">
+        <string>Decrypt</string>
+       </property>
+      </widget>
+     </item>
+    </layout>
+   </item>
+  </layout>
+ </widget>
+ <resources/>
+ <connections/>
+</ui>
