@@ -1,8 +1,8 @@
 from PyQt5 import uic
 from PyQt5.QtWidgets import QWidget,QMessageBox
 import unicodedata
-from usefull_functions import Validate
-from usefull_functions import Files
+from utils import Validate
+from utils import Files
 import numpy as np
 from string import ascii_uppercase
 import matplotlib.pyplot as plt
@@ -18,6 +18,7 @@ class Analysis(QWidget):
         self.analyzeBtn.clicked.connect(self.analyze)
         self.evaluateBtn.clicked.connect(self.conclusion)
         self.importDeBtn.clicked.connect(self.importDe)
+        self.validate = Validate() 
     
     def importDe(self):
         content=Files().decryptImport()
@@ -44,12 +45,6 @@ class Analysis(QWidget):
         count = 0
         i = 0
         ngramInput=[]
-        def getDivisors(n):
-            l = []
-            for i in range(2,n):
-                if n % i == 0:
-                    l.append(i)
-            return l
         lst=[]
         while i < len(l): # Loop through all the list
             elt= l[i:i+3] # Take at least 3-character length for tuples
@@ -62,11 +57,11 @@ class Analysis(QWidget):
                         long = long -1
                         elt = l[i:i+long] # Now we have a tuple 
                         diff = j - i # Compute the distance
-                        freq.extend(getDivisors(diff)) #Add the divisors to the list
-                        divisors=getDivisors(diff)
+                        freq.extend(Validate.getDivisors(diff)) #Add the divisors to the list
+                        divisors=Validate.getDivisors(diff)
                         #print ("%s\ti:%s\tj:%s\tdiff:%s\t\tDivisors:%s" % 
                         a=[elt,i,j, diff,divisors] #Print information about the tuple (can be deleted)
-                        ngramInput.append(("Ngram: "+elt+"\n pos: "+str(i)+",\n next pos: "+str(j)+"\n pos difference: "+str(diff)+"\n divisors:"+str(getDivisors(diff))+"\n \n"))
+                        ngramInput.append(("Ngram: "+elt+"\n pos: "+str(i)+",\n next pos: "+str(j)+"\n pos difference: "+str(diff)+"\n divisors:"+str(Validate.getDivisors(diff))+"\n \n"))
                         lst.append(a)
                         count = count +1
                         j = j + long + 1

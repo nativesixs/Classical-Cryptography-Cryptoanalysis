@@ -1,8 +1,8 @@
 from PyQt5 import uic
 from PyQt5.QtWidgets import QWidget,QMessageBox
 import unicodedata
-from usefull_functions import Validate
-from usefull_functions import Files
+from utils import Validate
+from utils import Files
 import math
 import numpy as np
 import sys

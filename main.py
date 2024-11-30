@@ -14,6 +14,7 @@ from src.scytale import Scytale
 from src.playfair import Playfair
 from src.breakCipher import Breaker
 from src.analysis import Analysis
+from utils import Validate
 
 
 
@@ -34,6 +35,8 @@ class MainWindow(QMainWindow):
         self.breakerBtn.clicked.connect(self.gotoBreaker)      
         self.analysisBtn.clicked.connect(self.gotoAnalysis)
         self.aboutBtn.triggered.connect(self.about)
+        self.validate = Validate() 
+        
     def about(self):
         self.stackedWidget.setCurrentWidget(self.aboutPage)
 

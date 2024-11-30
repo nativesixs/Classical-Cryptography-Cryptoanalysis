@@ -2,14 +2,13 @@ from PyQt5 import uic
 from PyQt5.QtWidgets import QWidget,QMessageBox
 import unicodedata
 import sys
-from PyQt5.QtWidgets import QApplication, QMainWindow
-from PyQt5 import QtGui, uic
+from PyQt5 import uic
 
 from PyQt5.QtWidgets import QMessageBox
 import unicodedata
 import operator
-from usefull_functions import Validate
-from usefull_functions import Files
+from utils import Validate
+from utils import Files
 
 
 import sys
@@ -48,7 +47,7 @@ class Playfair(QWidget):
                 .decode("utf-8")
         return str(text)
     
-    def makec(self): ##osetreni klice
+    def makec(self):
         key = self.keyLine.text()
         key=key.upper()
         key=self.strip_accents(key)
@@ -77,7 +76,7 @@ class Playfair(QWidget):
         msg.setText(message)
         msg.exec_()
     
-    def getnums(self,char,op):##ziska indexy a hodnoty cisel
+    def getnums(self,char,op):
         key=self.makec()
         cislahod=[]
         cislaind=[]
@@ -90,14 +89,14 @@ class Playfair(QWidget):
             self.errmsg('Numbers wont be encrypted because key is empty')
         return cislahod,cislaind
     
-    def getspace(self,char):##ziska indexy mezer
+    def getspace(self,char):
         cislaind=[]
         for i,c in enumerate(char):
             if c==' ':  
                 cislaind.append(i)
         return cislaind 
     
-    def make(self,char): ## osetreni charu balast,uppercase
+    def make(self,char): 
         char=''.join([*filter(str.isalpha, char)])
         char=self.strip_accents(char)
         char=char.upper()
@@ -117,11 +116,11 @@ class Playfair(QWidget):
         return char
         
     
-    def matrixdisplay(self): ##vypise matici na vystup
+    def matrixdisplay(self):
         matrix=self.matice()
         return self.matrixField.setText(str(matrix))
 
-    def matice(self):  #vytvori matici s klicem
+    def matice(self):
         chars = ["A","B","C","D","E","F","G","H","I","J","K","L","M","N","O","P","Q","R","S","T","U","V","W","X","Y","Z"]
         key=self.makec()
 
@@ -135,7 +134,7 @@ class Playfair(QWidget):
             abc.remove("Q")
         
         matrix = [[None] * 5 for i in range(5)]
-        full_string =abc #keyword + alphabet
+        full_string =abc
         
         for i in range(25):
             matrix[i // 5][i % 5] = full_string[i]
@@ -158,13 +157,12 @@ class Playfair(QWidget):
         return hel     
 
     def checkodd(self,char):
-        #if len(char)%2!=0:
             c=""
             if self.radioButtonEN.isChecked():
                 dopln='Z'
                 dopln2='X'
             if self.radioButtonCZ.isChecked():
-                dopln='Z'##xq
+                dopln='Z'
                 dopln2='X'
             if char[-1]==dopln:
                 c=char[:]+dopln2
@@ -172,9 +170,9 @@ class Playfair(QWidget):
                 c=char[:]+dopln
             char=c
             return char
-    #############################
+        
+        
     def encrypt(self):
-        #char=self.plainText.text()
         if self.keepSpaces.isChecked():
             char=Validate().inputVer(self.plainText.text())
         else:
@@ -192,7 +190,6 @@ class Playfair(QWidget):
         for i in range(int(len(char)/2)):
             pom=hel[t]
             pom2=hel[h+1]
-            #print(pom[0],pom2[0])
             if pom[1]==pom2[1]:
                 if pom[0]==4:
                     v1.append(matrix[pom[0]-4][pom[1]])
@@ -239,34 +236,32 @@ class Playfair(QWidget):
         if len(cisla[0])>=1:
             for i in range(len(cisla[0])):
                 v1.insert(cisla[1][i],cisla[0][i])
-        dec1string=''.join(map(str, v1))#''.join(v1)
+        dec1string=''.join(map(str, v1))
         if self.exportToFile.isChecked():
             self.export(dec1string,1)
         
-        if len(dec1string)>4: ###############osetreni rozdeleni na petice
+        if len(dec1string)>4:
             fives=' '.join(dec1string[i:i+5] for i in range(0, len(dec1string), 5))
             return (self.cipherTextLine.setText(fives),
-                    self.cipherText.clear(), ##vrati automaticky hodnotu do pole 2
+                    self.cipherText.clear(),
                     self.cipherText.setText(''.join(dec1string)))
         else:
             return (self.cipherTextLine.setText(''.join(dec1string)),
                     self.cipherText.clear(),
                     self.cipherText.setText(''.join(dec1string)))
         
-    ######################################################DEC
     
     def decrypt(self):
-        #char=self.cipherText.text() 
         if self.keepSpaces.isChecked():
             char=Validate().inputVer(self.cipherText.text())
         else:
             char=Validate().analysisCleantext(self.cipherText.text())
         spaces=self.getspace(char) 
-        cisla=self.getnums(char,operator.sub) #zjisti a sifruje cisla
-        char=self.make(char) #osetri vstupy na balast
+        cisla=self.getnums(char,operator.sub)
+        char=self.make(char)
         matrix=self.matice()
         if len(char)%2!=0:
-            char=self.checkodd(char)    #pokud neni lichy - prida Z
+            char=self.checkodd(char)
         hel=self.loc(char,matrix)
         v1=[]    
         t=0
@@ -276,11 +271,11 @@ class Playfair(QWidget):
             pom2=hel[h+1]
             if pom[1]==pom2[1]:
                 if pom[0]==4:
-                    v1.append(matrix[pom[0]-1][pom[1]])##changed +1 to -1
+                    v1.append(matrix[pom[0]-1][pom[1]])
                 if pom[0]!=4: 
                     v1.append(matrix[pom[0]-1][pom[1]])     
                 if pom2[0]==4:
-                    v1.append(matrix[pom2[0]-1][pom2[1]]) ## changed +1 to -1
+                    v1.append(matrix[pom2[0]-1][pom2[1]])
                 if pom2[0]!=4: 
                     v1.append(matrix[pom2[0]-1][pom2[1]])
                  
@@ -320,10 +315,10 @@ class Playfair(QWidget):
         if len(cisla[0])>=1:
             for i in range(len(cisla[0])):
                 v1.insert(cisla[1][i],cisla[0][i])
-        dec1string=''.join(map(str, v1))#''.join(v1)
+        dec1string=''.join(map(str, v1))
         if self.exportToFile.isChecked():
             self.export(dec1string,2)
-        return self.plainTextLine.setText(dec1string)#(dec1string)
+        return self.plainTextLine.setText(dec1string)
     
     def export(self,content,sw):
         if sw==1:

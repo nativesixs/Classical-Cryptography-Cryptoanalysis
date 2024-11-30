@@ -3,8 +3,8 @@ from PyQt5.QtWidgets import QWidget,QMessageBox
 import unicodedata
 import random
 import itertools
-from usefull_functions import Validate
-from usefull_functions import Files
+from utils import Validate
+from utils import Files
 
 import sys
 sys.path.append("..")
@@ -34,7 +34,7 @@ class Adf(QWidget):
         content=Files().decryptImport()
         self.cipherText.setText(content)
     
-    def errmsg(self,message): #vyhazuje error cuz fancy
+    def errmsg(self,message):
         msg = QMessageBox()
         msg.setWindowTitle("Input Error")
         msg.setIcon(QMessageBox.Critical)
@@ -44,14 +44,14 @@ class Adf(QWidget):
     def strip_accents(self,text):
         try:
             text = unicode(text, 'utf-8')
-        except NameError: # unicode is a default on python 3 
+        except NameError:
                 pass
         text = unicodedata.normalize('NFD', text)\
                 .encode('ascii', 'ignore')\
                 .decode("utf-8")
         return str(text)
 
-    def matice(self,chars):  #vytvori matici s klicem
+    def matice(self,chars):
         matrix = [[None] * 5 for i in range(5)]
         full_string =chars #keyword + alphabet     
         for i in range(25):
@@ -60,8 +60,7 @@ class Adf(QWidget):
              print(row)       
         return matrix
 
-    ########################################
-    def makec(self): ##osetreni klice
+    def makec(self):
         key = self.keyLine.text()
         key=key.upper()
         key=self.strip_accents(key)
@@ -78,9 +77,8 @@ class Adf(QWidget):
             pool= ["A","B","C","D","E","F","G","H","I","J","K","L","M","N","O","P","Q","R","S","T","U","V","W","X","Y","Z",'0','1','2','3','4','5','6','7','8','9']
         elif self.radioButtonEN.isChecked():pool= ["A","B","C","D","E","F","G","H","I","K","L","M","N","O","P","Q","R","S","T","U","V","W","X","Y","Z"]
         elif self.radioButtonCZ.isChecked():pool= ["A","B","C","D","E","F","G","H","I","J","K","L","M","N","O","P","R","S","T","U","V","W","X","Y","Z"]
-            
-        #else: pool= ["A","B","C","D","E","F","G","H","I","J","K","L","M","N","O","P","Q","R","S","T","U","V","W","X","Y","Z"]
-        pooltaken=self.textEditInputMatrix.toPlainText()#################################
+        
+        pooltaken=self.textEditInputMatrix.toPlainText()
         
         if self.radioButtonAll.isChecked():
             pooltaken=self.makechars2(pooltaken)
@@ -98,7 +96,7 @@ class Adf(QWidget):
             chars= ["A","B","C","D","E","F","G","H","I","J","K","L","M","N","O","P","Q","R","S","T","U","V","W","X","Y","Z",'0','1','2','3','4','5','6','7','8','9']
         elif self.radioButtonEN.isChecked():chars= ["A","B","C","D","E","F","G","H","I","K","L","M","N","O","P","Q","R","S","T","U","V","W","X","Y","Z"]
         elif self.radioButtonCZ.isChecked():chars= ["A","B","C","D","E","F","G","H","I","J","K","L","M","N","O","P","R","S","T","U","V","W","X","Y","Z"]
-        random.shuffle(chars) ## generuje random abecedu
+        random.shuffle(chars)
         c=''
         c=c.join(chars)
         return self.textEditInputMatrix.setText(c)
@@ -123,7 +121,6 @@ class Adf(QWidget):
     def make(self,char):
         char = char.replace(" ", "XMEZERAX")
         char=''.join([*filter(str.isalpha, char)])
-       # char = char.replace("XMEZERAX", " ")
         char=self.strip_accents(char)
         char=char.upper()
         if self.radioButtonEN.isChecked():
@@ -146,7 +143,7 @@ class Adf(QWidget):
                            hel.append(loc)
            return hel
     
-    def matrixdisplay(self): ##vypise matici na vystup
+    def matrixdisplay(self):
         if self.radioButtonAll.isChecked():
              if len(self.alpinput())<35:
                 self.errmsg('Matrix is missing characters')
@@ -172,7 +169,6 @@ class Adf(QWidget):
         chars=self.alpinput()
  
         key=self.makec()
-        #text=self.plainText.text()
         if self.keepSpaces.isChecked():
             text=Validate().inputVer(self.plainText.text())
         else:
@@ -187,7 +183,6 @@ class Adf(QWidget):
         
         matrix=self.matice(chars)
         res=self.loc(text,matrix)
-        #print(res,'lokace')
         flat=itertools.chain.from_iterable(res)
         te=list(flat)
       
@@ -224,7 +219,6 @@ class Adf(QWidget):
         chars=self.alpinput()
         key=self.makec()
         matrix=self.matice(chars)
-        #encryptedstr=self.cipherText.text()
         if self.keepSpaces.isChecked():
             encryptedstr=Validate().inputVer(self.cipherText.text())
         else:
@@ -266,9 +260,9 @@ class Adf(QWidget):
         return self.plainTextLine.setText(''.join(result))
         
        
-    def maticedruha(self,chars):  #vytvori matici s klicem
+    def maticedruha(self,chars):
         matrix = [[None] * 6 for i in range(6)]
-        full_string =chars #keyword + alphabet     
+        full_string =chars
         for i in range(36):
             matrix[i // 6][i % 6] = full_string[i]   
         for row in matrix:
@@ -324,7 +318,8 @@ class Adf(QWidget):
         return (self.cipherTextLine.setText(fives),
                 self.cipherText.clear(),
                 self.cipherText.setText(encryptedstr))
-    ########################################## DEC
+
+
     def decryptv(self):
         chars=self.alpinput()
         key=self.makec()

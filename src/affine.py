@@ -1,9 +1,8 @@
 from PyQt5 import uic
-from PyQt5.QtWidgets import QWidget,QMessageBox
-import unicodedata
+from PyQt5.QtWidgets import QWidget
 
-from usefull_functions import Validate
-from usefull_functions import Files
+from utils import Validate
+from utils import Files
 
 import sys
 sys.path.append("..")
@@ -44,7 +43,6 @@ class Affine(QWidget):
         m=26
         chars= ["A","B","C","D","E","F","G","H","I","J","K","L","M","N","O","P","Q","R","S","T","U","V","W","X","Y","Z"]
         res=[]
-        #char =Validate().inputVer(self.plainText.text())
         if self.keepSpaces.isChecked():
             char=Validate().inputVer(self.plainText.text())
         else:
@@ -64,10 +62,10 @@ class Affine(QWidget):
             if self.exportToFile.isChecked():
                 self.export(encryptedText,1)
                 
-        if len(encryptedText)>4: #osetreni rozdeleni na petice
+        if len(encryptedText)>4:
             fives=' '.join(encryptedText[i:i+5] for i in range(0, len(encryptedText), 5))
             return (self.cipherTextLine.setText(fives),
-                    self.cipherText.clear(), ##vrati automaticky hodnotu do pole 2
+                    self.cipherText.clear(),
                     self.cipherText.setText(''.join(res)))
         else:
             return (self.cipherTextLine.setText(''.join(res)),
@@ -91,7 +89,6 @@ class Affine(QWidget):
         
         decres=[]
         modin = modInverse(a,m)
-        #char =Validate().inputVer(self.cipherText.text())
         if self.keepSpaces.isChecked():
             char=Validate().inputVer(self.cipherText.text())
         else:
